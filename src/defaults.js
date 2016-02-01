@@ -103,6 +103,7 @@ function defaults (options, cal) {
   if (styl.timeList === no) { styl.timeList = 'rd-time-list'; }
   if (styl.timeListActive === no) { styl.timeListActive = 'rd-time-list-active'; }
   if (styl.timeOption === no) { styl.timeOption = 'rd-time-option'; }
+  if (styl.today === no) { styl.today = 'rd-day-today'; }
 
   return o;
 }

@@ -144,7 +144,8 @@ If you don't set an option, the default will be used. You can [look up the defau
     "time": "rd-time",
     "timeList": "rd-time-list",
     "timeListActive": "rd-time-list-active",
-    "timeOption": "rd-time-option"
+    "timeOption": "rd-time-option",
+    "today": "rd-day-today"
   },
   "time": true,
   "timeFormat": "HH:mm",
