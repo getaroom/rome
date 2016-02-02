@@ -106,11 +106,16 @@ rome(exf, {
   dateValidator: rome.val.except([exb, exd, '2014-08-15'])
 });
 
-rome(test, {
+rome(multi1, {
+  monthsInCalendar: 2
+});
+
+rome(multi2, {
   monthsInCalendar: 2,
-  time: false,
-  min: moment(new Date().setHours(0, 0, 0, 0)),
-  inputFormat: 'MM/DD/YYYY',
-  nextPrevOffset: 1,
   silentNextPrev: true
-})
+});
+
+rome(multi3, {
+  monthsInCalendar: 2,
+  nextPrevOffset: 1
+});

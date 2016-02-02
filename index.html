@@ -240,7 +240,36 @@ rome(sixth, {
     </pre>
   </div>
   <div class="parent">
-    <input type="text" id="test" name="test" class="form-control" />
+    <h4>Multiple month calendars</h4>
+    <p>No problem</p>
+    <input type="text" id="multi1" name="multi1" class="input" />
+    <pre>
+      <code>
+rome(multi1, {
+  monthsInCalendar: 2
+})
+      </code>
+    </pre>
+    <p>Don't want the date auto filled when using the next and prev buttons?</p>
+    <input type="text" id="multi2" name="multi2" class="input" />
+    <pre>
+      <code>
+rome(multi2, {
+  monthsInCalendar: 2,
+  silentNextPrev: true
+})
+      </code>
+    </pre>
+    <p>Want the calendar to progress by 1 month instead of 2?</p>
+    <input type="text" id="multi3" name="multi3" class="input" />
+    <pre>
+      <code>
+rome(multi3, {
+  monthsInCalendar: 2,
+  nextPrevOffset: 1
+})
+      </code>
+    </pre>
   </div>
 </div>
 <h3>Get it on GitHub! <a href='https://github.com/bevacqua/rome'>bevacqua/rome</a></h3>

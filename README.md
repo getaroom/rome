@@ -87,6 +87,8 @@ Option                | Description
 `weekdayFormat`       | Format used to display weekdays. Takes `min` _(Mo)_, `short` _(Mon)_, `long` _(Monday)_, or an array with seven strings of your choosing.
 `weekStart`           | Day considered the first of the week. Range: Sunday `0` - Saturday `6`
 `horizontalAlignment` | Defines the alignment of calendar with the `input` element: `left`, `center`, `right`
+`nextPrevOffset`      | Defines a fixed offset to use when using next and previous buttons `false` or a number
+`silentNextPrev`      | Defines whether to update the selected date when using the next or previous buttons. `true` or `false`
 
 Note that in the case of input fields, when `initialValue` isn't provided the initial value is inferred from `elem.value` instead. In the case of inline calendars, `new Date()` will be used as a default if none is provided.
 
@@ -153,6 +155,8 @@ If you don't set an option, the default will be used. You can [look up the defau
   "timeValidator": Function.prototype,
   "weekdayFormat": "min",
   "weekStart": moment().weekday(0).day()
+  "nextPrevOffset": false
+  "silentNextPrev": false
 }
 ```
 
