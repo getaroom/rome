@@ -319,12 +319,12 @@ function calendar (calendarOptions) {
   function changeMonth (op) {
     var bound;
     var direction = op === 'add' ? -1 : 1;
-    var offset = o.monthsInCalendar + direction * getMonthOffset(lastDayElement);
+    var offset = o.nextPrevOffset ? o.nextPrevOffset : o.monthsInCalendar + direction * getMonthOffset(lastDayElement);
     refCal[op](offset, 'months');
     bound = inRange(refCal.clone());
     ref = bound || ref;
     if (bound) { refCal = bound.clone(); }
-    update();
+    update(o.silentNextPrev);
     api.emit(op === 'add' ? 'next' : 'back', ref.month());
   }
 
@@ -490,8 +490,19 @@ function calendar (calendarOptions) {
       cell: nextMonth
     });
 
-    back.disabled = !isInRangeLeft(first, true);
-    next.disabled = !isInRangeRight(lastDay, true);
+    if (offset === 0){
+      // Check the last day of the previous month is in range. Otherwise if the
+      // current date is the first of the month the disabled may not work
+      // as expected.
+      back.disabled = !isInRangeLeft(first.clone().subtract(1, 'day'), true);
+    }
+
+    if (offset === o.monthsInCalendar - 1){
+      // Check the first day of the next month is in range. Otherwise if the
+      // current date is the last of the month the disabled may not work
+      // as expected.
+      next.disabled = !isInRangeRight(lastDay.clone().add(1,'day'), true);
+    }
     month.date = offsetCal.clone();
 
     function part (data) {

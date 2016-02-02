@@ -105,3 +105,12 @@ rome(exe, {
 rome(exf, {
   dateValidator: rome.val.except([exb, exd, '2014-08-15'])
 });
+
+rome(test, {
+  monthsInCalendar: 2,
+  time: false,
+  min: moment(new Date().setHours(0, 0, 0, 0)),
+  inputFormat: 'MM/DD/YYYY',
+  nextPrevOffset: 1,
+  silentNextPrev: true
+})
